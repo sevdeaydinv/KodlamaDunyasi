@@ -1,65 +1,68 @@
-Proje Açıklaması
-Kodlama Dünyası, yazılım geliştirme ve kodlama öğrenmek isteyenler için hazırlanmış kapsamlı bir eğitim ve kaynak platformudur. Farklı seviyelerdeki yazılımcılara rehberlik eden platform, temel derslerden ileri düzey projelere kadar geniş bir içerik sunar.
+ <h1 align="center">💻 Kodlama Dünyası - Veritabanı Projesi</h1>
 
-Özellikler
+<p align="center">
+  <img src="https://img.shields.io/badge/Dil-SQL-blue?style=flat-square" />
+  <img src="https://img.shields.io/badge/Veritabanı-MSSQL%20Server-green?style=flat-square" />
+  <img src="https://img.shields.io/badge/Proje-Tamamlanmış-success?style=flat-square" />
+</p>
 
-Programlama dillerine ve yazılım araçlarına yönelik rehber içerikler
-Temel ve ileri düzey eğitimler
-Ücretli ve ücretsiz eğitim içerikleri
-Kullanıcı rolleri: Kullanıcı, Admin, Satıcı (Opsiyonel)
-Güvenli ödeme ve sipariş takibi
-Kullanıcı aktiviteleri ve içerik performansı raporları
+---
 
-Kurulum Adımları
+## 📌 Proje Hakkında
 
-1. Projeyi Klonlayın
+Bu proje, temel bir e-ticaret uygulamasının veritabanı yapısını modellemek amacıyla oluşturulmuştur. Kullanıcı, ürün, kategori, sipariş gibi temel kavramlar için tablolar oluşturulmuş, ilişkisel yapı kurulmuş ve çeşitli SQL işlemleri (CRUD + JOIN + Stored Procedure) uygulanmıştır.
 
-Terminal veya komut satırında aşağıdaki komutu çalıştırın:
+---
 
-git clone https://github.com/gzmycs/KodlamaDunyasi.git
+## ⚙️ Kullanılan Yapılar
 
-Ardından proje dizinine gidin:
+- *MSSQL Server*  
+- *SQL Sorguları*  
+- *INNER / LEFT JOIN*  
+- *Stored Procedure (SP)*  
+- *Veritabanı Normalizasyonu*  
+- *İlişkisel Tablolar*  
 
-cd KodlamaDunyasi
+---
 
-2. Gereksinimleri Yükleyin
+## 🧩 Tablolar
 
-.NET Core SDK’nın kurulu olduğundan emin olun. Yüklemek için:
-🔗 Resmi .NET Core İndirme Sayfası
+| Tablo Adı           | Açıklama |
+|---------------------|----------|
+| Kullanicilar      | Kullanıcı bilgilerini tutar |
+| Urunler           | Ürün detaylarını içerir |
+| Kategoriler       | Ürün kategorileri |
+| Sepet             | Kullanıcıların ürünleri eklediği geçici liste |
+| SepetUrunleri     | Sepetteki ürünlerin detayları |
+| Siparisler        | Kullanıcının verdiği siparişler |
+| Adresler          | Teslimat ve fatura adres bilgileri |
+| Yorumlar          | Ürünlere yapılan yorumlar |
+| Favoriler         | Kullanıcının favoriye eklediği ürünler |
 
-Bağımlılıkları yüklemek için:
+---
 
-dotnet restore
+## 📁 Dosya Yapısı
 
-3. Veritabanı Ayarları
+│
+├── KodlamaDunyasi.sql     → Veritabanı script dosyası (tablolar + veriler)
+├── README.md              → Proje açıklaması (bu dosya)
 
-Eğer veritabanı kullanıyorsanız, appsettings.json dosyasını yapılandırın. Varsayılan olarak SQL Server kullanılmıştır.
 
-Veritabanını oluşturmak için:
+## 💡 Yapılan SQL İşlemleri
 
-dotnet ef database update
+- SELECT, INSERT, UPDATE, DELETE  
+- INNER JOIN, LEFT JOIN örnekleri  
+- Stored Procedure ile ürün listeleme ve ekleme  
+- Alt sorgular ve koşullu filtrelemeler
 
-4. Uygulamayı Çalıştırın
+---
 
-dotnet run
+## 🛠️ Nasıl Kullanılır?
 
-Uygulama çalıştığında tarayıcınızda aşağıdaki adresi ziyaret edebilirsiniz:
-👉 http://localhost:5000
-
-Kullanılan Teknolojiler
-	•	ASP.NET Core 5.0
-	•	C#
-	•	Entity Framework Core
-	•	SQL Server
-	•	Bootstrap & CSS
-
-Katkıda Bulunma
-
-Projeye katkıda bulunmak isterseniz:
-	1.	Depoyu forklayın.
-	2.	Geliştirmelerinizi yapın.
-	3.	Pull Request gönderin.
-
-Lisans
-
-Bu proje MIT Lisansı ile lisanslanmıştır.
+1. KodlamaDunyasi.sql dosyasını SQL Server Management Studio'da aç  
+2. Script'i çalıştırarak veritabanı yapısını oluştur  
+3. SELECT * FROM Urunler gibi sorgularla test et  
+4. İsteğe göre prosedürleri çalıştır:  
+   ```sql
+   EXEC sp_UrunEkle 'Kulaklık', 299.99, 1;
+   EXEC sp_UrunListele;
